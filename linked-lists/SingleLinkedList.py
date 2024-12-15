@@ -3,6 +3,7 @@ class Node:
     def __init__(self, value):
         self.info = value
         self.link = None
+
 class SingleLinkedList:
     
     def __init__(self):
@@ -42,13 +43,27 @@ class SingleLinkedList:
             return False
 
     def insert_in_beginning(self, data):
-        pass
+        temp = Node(data)
+        temp.link = self.start
+        self.start = temp
     
     def insert_at_end(self, data):
-        pass
+        temp = Node(data)
+        if self.start is None:
+            self.start = temp
+            return
+        p = self.start
+        while p.link is not None:
+            p = p.link
+        p.link = temp
     
     def create_list(self):
-        pass
+        n = int(input("Enter the number of nodes: "))
+        if n == 0:
+            return
+        for i in range(n):
+            data = int(input("Enter the element to be inserted: "))
+            self.insert_at_end(data)
     
     def insert_after(self, data, x):
         pass
@@ -110,14 +125,25 @@ list = SingleLinkedList()
 list.create_list()
 
 while True:
-   option = int(input("Enter your choice:" ) )
+   option = int(input("Enter your choice: " ) )
    if option == 1:
      list.display_list()
    elif option == 2:
         list.count_nodes()
    elif option == 3:
-        data = int(input('Enter element to be searched'))
+        data = int(input('Enter element to be searched: '))
         list.search(data)
+   elif option == 4:
+    data = int(input('Enter element to be inserted: '))
+    list.insert_in_beginning(data)
+   elif option == 5:
+    data = int(input('Enter element to be inserted: '))
+    list.insert_at_end(data)
+   elif option == 6:
+    data = int(input('Enter element to be inserted: '))
+    x = int(input('Enter element after which to insert: '))
+    list.insert_after(data, x)
+
 
 
 
