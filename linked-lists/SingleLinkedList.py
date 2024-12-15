@@ -66,14 +66,61 @@ class SingleLinkedList:
             self.insert_at_end(data)
     
     def insert_after(self, data, x):
-        pass
+        p = self.start
+        while p is not None:
+            if p.info == x:
+                break
+            p = p.link
+        if p is None:
+            print(x, "is not present in the list")
+        else:
+            temp = Node(data)
+            temp.link = p.link
+            p.link = temp
     
     def insert_before(self, data, x):
-        pass
+        # if list is empty
+        if self.start is None:
+            print("List is empty")
+            return
+        # x is the first name, new node is to be inserted before the first node
+        if x == self.start.info:
+            temp = Node(data)
+            temp.link = self.start
+            self.start = temp
+            return
+        # find reference to predecessor of node contacting x
+        p = self.start
+        while p.link is not None:
+            if p.link.info == x:
+                break
+            p = p.link
+        if p.link is None:
+            print(x, " not present in the list")
+        else:
+            temp = Node(data)
+            temp.link = p.link
+            p.link = temp
     
-    def insert_at_positio(self, x):
-        pass
-    
+
+    def insert_at_position(self, x):
+        if k == 1:
+            temp = Node(data)
+            temp.link = self.start
+            self.start = temp
+            return
+        p = self.start
+        i = 1
+        while i<k-1 and p is not None: # find a reference to k-1 node
+            p = p.link 
+            i += 1
+        if p is None:
+            print(" You can instert upto position", i)
+        else:
+            temp = Node(data)
+            temp.link = p.link
+            p.link = temp
+
     def delete_node(self, x):
         pass
     
@@ -143,6 +190,14 @@ while True:
     data = int(input('Enter element to be inserted: '))
     x = int(input('Enter element after which to insert: '))
     list.insert_after(data, x)
+   elif option == 7:
+    data = int(input('Enter element to be inserted: '))
+    x = int(input('Enter element before which to insert: '))
+    list.insert_before(data, x)
+   elif option == 8:
+    data = int(input('Enter element to be inserted: '))
+    x = int(input('Enter element before which to insert at position: '))
+    list.insert_at_position(data, x)
 
 
 
