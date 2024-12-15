@@ -122,13 +122,37 @@ class SingleLinkedList:
             p.link = temp
 
     def delete_node(self, x):
-        pass
+        if self.start is None:
+            print("List is empty")
+        # Deletion of first node
+        if self.start.info == x:
+            self.start = self.start.link
+            return
+        # Deletion in betweent or at the end
+        p = self.start
+        while p.link is not None:
+            if p.link.info == x:
+                break
+            p = p.link
+        if p.link is None:
+            print("Element", x, "is not in list")
+        else:
+            p.link = p.link.link
     
     def delete_first_node(self):
-        pass
+        if self.start is None:
+            return
+        self.start = self.start.link
 
     def delete_last_node(self):
-        pass
+        if self.start is None:
+            return
+        if self.start.link is None:
+            return
+        p = self.start
+        while p.link.link is not None:
+            p = p.link
+        p.link = None
      
     def reverse_list(self):
         pass
@@ -198,7 +222,11 @@ while True:
     data = int(input('Enter element to be inserted: '))
     x = int(input('Enter element before which to insert at position: '))
     list.insert_at_position(data, x)
-
+   elif option == 9:
+    x = int(input('Enter element before which to delete at position: '))
+    list.delete_node(x)
+   elif option == 10:
+    list.delete_last_node()
 
 
 
