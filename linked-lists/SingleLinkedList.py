@@ -19,7 +19,7 @@ class SingleLinkedList:
             while p is not None:
                 print(p.info)
                 p = p.link # Next node
-            print()
+            #print()
 
     def count_nodes(self):
         p = self.start
@@ -155,13 +155,48 @@ class SingleLinkedList:
         p.link = None
      
     def reverse_list(self):
-        pass
+        p = self.start
+        prev = None
+        while p is not None:
+            next = p.link
+            p.link = prev
+            prev = p
+            p = next
+            print("value of prev",prev.info)
+        self.start = prev
 
     def bubble_sort_exdata(self):
-        pass
+        """
+        1. stop 'end' when end refers to second node - ( p.link == end)
+        """
+        end = None
+        while end ! = self.start.link: # for iterate passes
+            p = self.start
+            while end ! = p.link: # for iterate the elements to perform checks
+                q = p.link
+                if p.info > q.info:
+                    p.info, q.info = q.info, p.info
+                p = p.link
+            end = p # saves last element in pass.
     
     def buddle_sort_exlinks(self):
-        pass
+        end = None
+        while end ! = self.start.link:
+            r =  p = self.start
+            while end ! = p.link:
+                q = p.link
+                if p.info > q.info:
+                    p.link = q.link
+                    q.link = p
+                    r.link = p
+                else:
+                    self.start = q
+                p,q = q,p
+                r = p
+                p = p.link
+            end = p
+
+
     
     def has_cycle(self):
         pass
@@ -227,6 +262,8 @@ while True:
     list.delete_node(x)
    elif option == 10:
     list.delete_last_node()
+   elif option == 11:
+    list.reverse_list()
 
 
 
