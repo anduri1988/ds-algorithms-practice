@@ -170,9 +170,9 @@ class SingleLinkedList:
         1. stop 'end' when end refers to second node - ( p.link == end)
         """
         end = None
-        while end ! = self.start.link: # for iterate passes
+        while end != self.start.link: # for iterate passes
             p = self.start
-            while end ! = p.link: # for iterate the elements to perform checks
+            while end != p.link: # for iterate the elements to perform checks
                 q = p.link
                 if p.info > q.info:
                     p.info, q.info = q.info, p.info
@@ -181,9 +181,9 @@ class SingleLinkedList:
     
     def buddle_sort_exlinks(self):
         end = None
-        while end ! = self.start.link:
+        while end != self.start.link:
             r =  p = self.start
-            while end ! = p.link:
+            while end != p.link:
                 q = p.link
                 if p.info > q.info:
                     p.link = q.link
